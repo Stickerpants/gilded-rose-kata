@@ -43,7 +43,6 @@ class GildedRoseTest(unittest.TestCase):
         items = [Item("Aged Brie", 1, 47)]
         gilded_rose = GildedRose(items)
         gilded_rose.update_quality()
-
         # Brie increases in quality as it gets older
         self.assertEqual(48, items[0].quality)
 
@@ -97,10 +96,10 @@ class GildedRoseTest(unittest.TestCase):
         gilded_rose = GildedRose(items)
         gilded_rose.update_quality()
 
-        # If sell_in is negative, then backstage passes become worthless
         self.assertEqual(23, items[0].quality)
 
         gilded_rose.update_quality()
+        # If sell_in is <=0, then backstage passes become worthless
         self.assertEqual(0, items[0].quality)
 
     def test_backstage_passes_5(self):
@@ -112,6 +111,17 @@ class GildedRoseTest(unittest.TestCase):
         # Quality can't grow beyond 50
         self.assertEqual(50, items[0].quality)
 
+    def test_conjured(self):
+        items = [Item("Conjured Mana Cake", 1, 10)]
+        gilded_rose = GildedRose(items)
+        gilded_rose.update_quality()
+
+        # Quality drops twice as fast
+        self.assertEqual(8, items[0].quality)
+
+        gilded_rose.update_quality()
+        # Once expired, it's four times as fast
+        self.assertEqual(4, items[0].quality)
 
 if __name__ == '__main__':
     unittest.main()
