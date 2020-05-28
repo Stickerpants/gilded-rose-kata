@@ -1,7 +1,7 @@
 Hi and welcome to team Gilded Rose.
 
 As you know, we are a small inn with a prime location in a prominent city ran
-by a friendly innkeeper named Allison.  We also buy and sell only the finest
+by a friendly innkeeper named Allison. We also buy and sell only the finest
 goods. Unfortunately, our goods are constantly degrading in quality as they
 approach their sell by date.
 
